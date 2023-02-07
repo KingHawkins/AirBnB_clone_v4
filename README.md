@@ -70,6 +70,39 @@ $ echo "python3 -m unittest discover tests" | bash
 ```
 
 
+<h2>Tests</h2>
+All your files must be tested with unit tests.
+
+
+```bash, python
+guillaume@ubuntu:~/AirBnB$ python3 -m unittest discover tests
+...................................................................................
+...................................................................................
+.......................
+----------------------------------------------------------------------
+Ran 189 tests in 13.135s
+
+OK
+guillaume@ubuntu:~/AirBnB$
+```
+
+Note that this is just an example , the number of tests you create can be different from the above example.
+<h2 style="color: red">Warning:</h2>
+Unit tests must also pass in non-interactive mode:
+
+
+```bash, python
+guillaume@ubuntu:~/AirBnB$ echo "python3 -m unittest discover tests" | bash
+...................................................................................
+...................................................................................
+.......................
+----------------------------------------------------------------------
+Ran 189 tests in 13.135s
+
+OK
+guillaume@ubuntu:~/AirBnB$
+```
+
 
 
 
