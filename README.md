@@ -1,8 +1,5 @@
 <h1>0x00. AirBnB clone - The console</h1>
 <code>Group Project</code> <code>Python</code> <code>OOP</code>
-<p>
-<img src="https://s3.amazonaws.com/alx-intranet.hbtn.io/uploads/medias/2018/6/65f4a1dd9c51265f49d0.png" alt="" loading="lazy" style="">
-</p>
 <h2>Welcome to the AirBnB clone Project!</h2>
 <h3>First step: Write a command interpreter to manage your AirBnB objects.</h3>
 <p>This is the first step towards building your first full web application: the AirBnB clone. This first step is very important because you will use what you build during this project with all other following projects: HTML/CSS templating, database storage, API, front-end integration…</p>
@@ -73,8 +70,6 @@ $ echo "python3 -m unittest discover tests" | bash
 ```
 
 
-<p>
-<img src="https://s3.amazonaws.com/alx-intranet.hbtn.io/uploads/medias/2018/6/815046647d23428a14ca.png" alt="" loading="lazy" style="">
-</p>
+
 
 
