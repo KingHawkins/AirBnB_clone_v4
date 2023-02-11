@@ -9,6 +9,16 @@ from datetime import datetime
 class BaseModel:
     """defines all common attributes/methods for other classes"""
     def __init__(self, *args, **kwargs):
+        """Initialize Base Model class
+        Args:
+            args(tuple): tuple argument. Won't be used here
+            kwargs(dict): object dictionary passed
+        Attributes:
+            id: unique number for identification
+            created_at: shows when the object was created
+            updated_at: shows when the object was last updated
+            storage.new(): engine for storage
+        """
         if kwargs:
             for key in kwargs:
                 if key != '__class__':
