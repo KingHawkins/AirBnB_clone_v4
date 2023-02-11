@@ -12,6 +12,7 @@ from models.city import City
 from models.state import State
 """Tests for the Base Model"""
 
+
 class TestInheritance(unittest.TestCase):
     """Tests for inheritance"""
     def test_id(self):
@@ -35,6 +36,7 @@ class TestInheritance(unittest.TestCase):
 
     def test_city(self):
         self.assertTrue(issubclass(City, BaseModel))
+
 
 class TestFunctionality(unittest.TestCase):
     """Tests for the functionality"""
@@ -62,6 +64,6 @@ class TestFunctionality(unittest.TestCase):
         print(my_user)
         self.assertEqual(captured, captured)
 
+
 if __name__ == '__main__':
     unittest.main()
-
