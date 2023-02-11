@@ -16,7 +16,7 @@ import shlex
 class HBNBCommand(cmd.Cmd):
     """Command processor"""
 
-    prompt = "(hbnb) "
+    prompt = "(hbnb)"
     l_classes = ['BaseModel', 'User', 'Amenity',
                  'Place', 'City', 'State', 'Review']
 
@@ -167,11 +167,15 @@ class HBNBCommand(cmd.Cmd):
             print("** no instance found **")
 
     def do_quit(self, line):
-        """ Quit command to exit the program """
+        """ Quit command to exit the program
+
+        """
         return True
 
     def do_EOF(self, line):
-        """ EOF command to exit the program """
+        """ EOF command to exit the program
+
+        """
         return True
 
 
