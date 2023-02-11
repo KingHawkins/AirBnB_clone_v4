@@ -177,7 +177,7 @@ class TestConsole(unittest.TestCase):
 
         with patch('sys.stdout', new=io.StringIO()) as f:
             self.hbnb.onecmd("destroy Review 1234")
-            self.assertEqual(f.getvalue().strip(), "** no instance found **")"
+            self.assertEqual(f.getvalue().strip(), "** no instance found **")
 
 
 if __name__ == '__main__':
