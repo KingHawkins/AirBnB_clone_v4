@@ -46,9 +46,8 @@ class BaseModel:
 
     def __str__(self):
         """returns string representation of an object"""
-        filtered = self.to_dict()
         return "[{}] ({}) {}".format(self.__class__.__name__,
-                                     self.id, filtered)
+                                     self.id, self.__dict__)
 
     def __repr__(self):
         """returns official string representation"""
