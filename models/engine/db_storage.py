@@ -34,7 +34,7 @@ class DBStorage:
                                              HBNB_MYSQL_DB),
                                       pool_pre_ping=True)
         if HBNB_ENV == 'test':
-            Base.metadata.drop_all(self.__engine)
+            Base.metadata.drop_all(bind=self.__engine)
 
     def all(self, cls=None):
         """query current database session"""
@@ -50,10 +50,11 @@ class DBStorage:
 
     def new(self, obj):
         """Adds new object to current database session"""
-        self.__session.add(obj)
+        if obj:
+            self.__session.add(obj)
 
     def save(self):
-        """commit al changes"""
+        """commit all changes"""
         self.__session.commit()
 
     def delete(self, obj=None):
@@ -64,13 +65,13 @@ class DBStorage:
     def reload(self):
         """reloads data from the database"""
         Base.metadata.create_all(self.__engine)
-        sess = sessionmaker(bind=self.__engine, expire_on_commit=False)
-        Session = scoped_session(sess)
+        session_factory = sessionmaker(bind=self.__engine, expire_on_commit=False)
+        Session = scoped_session(session_factory)
         self.__session = Session()
 
     def close(self):
         """call remove() method on the private session attribute"""
-        self.__session.remove()
+        self.__session.close()
 
     def get(self, cls, id):
         """

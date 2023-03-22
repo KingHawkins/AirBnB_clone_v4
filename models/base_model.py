@@ -31,7 +31,7 @@ class BaseModel:
             for key, value in kwargs.items():
                 if key == "created_at" or key == "updated_at":
                     value = datetime.strptime(value, "%Y-%m-%dT%H:%M:%S.%f")
-                if key != "__class__":
+                if key != "__class__" and key != '_sa_instance_state':
                     setattr(self, key, value)
             if "id" not in kwargs:
                 self.id = str(uuid.uuid4())
@@ -46,8 +46,9 @@ class BaseModel:
 
     def __str__(self):
         """returns string representation of an object"""
+        filtered = self.to_dict()
         return "[{}] ({}) {}".format(self.__class__.__name__,
-                                     self.id, self.__dict__)
+                                     self.id, filtered)
 
     def __repr__(self):
         """returns official string representation"""
