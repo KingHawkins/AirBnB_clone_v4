@@ -9,7 +9,8 @@ env.key_filename = '~/.ssh/school'
 
 
 def local_clean(rng=0):
-    """Cleans the archive files in the local machine"""
+    """Cleans the archive files in the local machine\
+            this is a helper function"""
     try:
         discard = ''
         check_no = local("ls -ltr versions/ | grep 'web_static' | wc -l")
@@ -32,7 +33,8 @@ def local_clean(rng=0):
 
 
 def do_clean(number=0):
-    """Cleans the archive files in the web servers"""
+    """Cleans the archive files in the web servers\
+            this is the main function"""
     try:
         discard = ''
         local_clean(number)

@@ -19,6 +19,3 @@ def do_pack():
         return 'versions/' + file
     except Exception:
         return None
-
-
-do_pack()

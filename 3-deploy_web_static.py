@@ -17,6 +17,3 @@ def deploy():
         return do_deploy(archive_path)
     except Exception:
         return False
-
-
-deploy()
