@@ -22,7 +22,7 @@ def do_pack():
         (hr, mn, sec) = result[1].split('.')[0].split(':')
         file = f'web_static_{yr}{mon}{day}{hr}{mn}{sec}.tgz'
         local('mkdir -p versions')
-        local(f'tar -czf versions/{file} web_static')
+        local(f'tar -cvzf versions/{file} web_static')
         return 'versions/' + file
     except Exception:
         return None
