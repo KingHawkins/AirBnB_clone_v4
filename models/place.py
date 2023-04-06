@@ -5,6 +5,7 @@ Defines Place class
 from os import getenv
 import models
 from models.base_model import BaseModel, Base
+from models.review import Review
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import Integer, String, Column, Float, ForeignKey, Table
 from sqlalchemy.orm import relationship
@@ -62,6 +63,7 @@ class Place(BaseModel, Base):
         @amenities.setter
         def amenities(self, cls=None):
             """sets the amenity ids"""
+            from models.amenity import Amenity
             if cls is None or cls.__class__ ==  Amenity:
                 add_amenity = models.storage.all(Amenity)
                 for key in add_amenity:
