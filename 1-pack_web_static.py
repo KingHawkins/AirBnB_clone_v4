@@ -6,7 +6,13 @@ from shlex import split
 
 
 def do_pack():
-    """Creates an archive file"""
+    """Inside the fabric.api package.
+    The library enables one to interact with the shell using python\
+            One can be able to run shell commands remotely using\
+            the `run` command and locally using the `local` command.\
+            Datetime library is used to get the time by which will be\
+            used to get the archive filename.
+    """
     try:
         """Under surveillance\
                 might fail"""
@@ -19,6 +25,3 @@ def do_pack():
         return 'versions/' + file
     except Exception:
         return None
-
-
-do_pack()
