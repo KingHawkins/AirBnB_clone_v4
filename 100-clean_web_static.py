@@ -32,8 +32,14 @@ def local_clean(rng=0):
 
 
 def do_clean(number=0):
-    """Cleans the archive files in the web servers\
-            this is the main function"""
+    """
+    Cleans the archive files in the web servers.
+    Deletes out-of-date archives.
+    Cleans both the local server and remote server.
+    The local_clean function cleans the local server.
+    Uses fabric to interact with the shell inorder to know which files\
+            should be deleted or kept.
+    """
     try:
         discard = ''
         local_clean(number)
