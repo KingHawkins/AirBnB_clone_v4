@@ -8,13 +8,10 @@ from pathlib import Path
 env.hosts = ['100.24.235.35', '100.26.158.195']
 env.user = 'ubuntu'
 env.key_filename = '~/.ssh/school'
-archive = 'versions/web_static_20230405212617.tgz'
 
 
 def do_deploy(archive_path):
     """Implementation"""
-    #c = Connection(**env)
-    #t = Transfer(c)
     if not os.path.exists(archive_path):
         return False
     try:

@@ -1,28 +1,18 @@
 #!/usr/bin/python3
-"""Creates an archive in a versions folder"""
+""" Function that compress a folder """
 from datetime import datetime
 from fabric.api import local
-from shlex import split
+import os
 
 
 def do_pack():
-    """Inside the fabric.api package.
-    The library enables one to interact with the shell using python\
-            One can be able to run shell commands remotely using\
-            the `run` command and locally using the `local` command.
-            Datetime library is used to get the time by which will be\
-            used to get the archive filename.
-            Shlex is used as a helper function to get the archive filename.
-    """
     try:
-        """Under surveillance\
-                might fail"""
-        result = split(str(datetime.now()))
-        (yr, mon, day) = result[0].split('-')
-        (hr, mn, sec) = result[1].split('.')[0].split(':')
-        file = f'web_static_{yr}{mon}{day}{hr}{mn}{sec}.tgz'
-        local('mkdir -p versions')
-        local(f'tar -cvzf versions/{file} web_static')
-        return 'versions/' + file
-    except Exception:
+        if not os.path.exists("versions"):
+            local('mkdir versions')
+        t = datetime.now()
+        f = "%Y%m%d%H%M%S"
+        archive_path = 'versions/web_static_{}.tgz'.format(t.strftime(f))
+        local('tar -cvzf {} web_static'.format(archive_path))
+        return archive_path
+    except:
         return None
