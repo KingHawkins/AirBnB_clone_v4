@@ -14,6 +14,12 @@ def deploy():
     """Implementation"""
     try:
         archive_path = do_pack()
-        return do_deploy(archive_path)
+        if archive_path == False:
+            return False
+        else:
+            return do_deploy(archive_path)
     except Exception:
         return False
+
+
+deploy()

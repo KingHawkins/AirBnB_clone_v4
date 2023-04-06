@@ -1,6 +1,5 @@
 #!/usr/bin/python3
 """deletes out of date archives"""
-import os
 from fabric.api import *
 
 env.hosts = ['100.24.235.35', '100.26.158.195']
@@ -20,13 +19,13 @@ def local_clean(rng=0):
             discard = array[:-1]
             for item in discard:
                 item = 'versions/' + item
-                os.remove(item)
+                local(f'rm -rfv {item}')
             print(discard)
         else:
             discard = array[:-rng]
             for item in discard:
                 item = 'versions/' + item
-                os.remove(item)
+                local(f'rm -rfv {item}')
             print(discard)
     except Exception:
         return False
@@ -60,3 +59,6 @@ def do_clean(number=0):
             print(discard)
     except Exception:
         return False
+
+
+do_clean()

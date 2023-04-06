@@ -5,13 +5,12 @@ from fabric.api import *
 from pathlib import Path
 
 
-env.hosts = ['ubuntu@100.24.235.35', 'ubuntu@100.26.158.195']
+env.hosts = ['100.24.235.35', '100.26.158.195']
 env.user = 'ubuntu'
 env.key_filename = '~/.ssh/school'
 archive = 'versions/web_static_20230405212617.tgz'
 
 
-@task
 def do_deploy(archive_path):
     """Implementation"""
     #c = Connection(**env)
@@ -32,8 +31,9 @@ def do_deploy(archive_path):
         run('rm -rf /data/web_static/releases/{}/web_static'\
             .format(filename_no_ext))
         run('rm -rf /data/web_static/current')
-        run('ln -s /data/web_static/releases/{}/ /data/web_static/current'
+        run('ln -sf /data/web_static/releases/{}/ /data/web_static/current'
             .format(filename_no_ext))
+        run('sudo service nginx restart')
         return True
     except Exception:
         return False

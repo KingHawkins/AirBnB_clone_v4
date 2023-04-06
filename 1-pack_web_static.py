@@ -9,9 +9,10 @@ def do_pack():
     """Inside the fabric.api package.
     The library enables one to interact with the shell using python\
             One can be able to run shell commands remotely using\
-            the `run` command and locally using the `local` command.\
+            the `run` command and locally using the `local` command.
             Datetime library is used to get the time by which will be\
             used to get the archive filename.
+            Shlex is used as a helper function to get the archive filename.
     """
     try:
         """Under surveillance\
