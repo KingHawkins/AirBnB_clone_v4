@@ -1,9 +1,11 @@
 #!/usr/bin/python3
-from flask import Flask
 """
 This is the first task in flask.
 we are to display the index page.
 """
+
+
+from flask import Flask
 app = Flask(__name__)
 
 @app.route('/', strict_slashes=False)
