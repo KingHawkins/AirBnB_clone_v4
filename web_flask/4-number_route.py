@@ -1,7 +1,16 @@
 #!/usr/bin/python3
+"""Starts a Flask web application.
+The application listens on 0.0.0.0, port 5000.
+Routes:
+    /: Displays 'Hello HBNB!'.
+    /hbnb: Displays 'HBNB'.
+    /c/<text>: Displays 'C' followed by the value of <text>.
+    /python: default
+    /python/: default
+    /python/<text>: displays the text on a page 
+    /number/<int:n>: displays n on the page if a number
 """
-uses the GET request and checks parameter passed
-"""
+
 from flask import Flask
 
 

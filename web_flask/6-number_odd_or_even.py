@@ -1,7 +1,18 @@
 #!/usr/bin/python3
+"""Starts a Flask web application.
+The application listens on 0.0.0.0, port 5000.
+Routes:
+    /: Displays 'Hello HBNB!'.
+    /hbnb: Displays 'HBNB'.
+    /c/<text>: Displays 'C' followed by the value of <text>.
+    /python: default
+    /python/: default
+    /python/<text>: displays the text on a page 
+    /number/<int:n>: displays n on the page if a number
+    /number_template/<int:n>: displays even|odd
+    /number_odd_or_even/<int:n>: dispplays even|odd
 """
-checks if parameter is even or odd.
-"""
+
 from flask import Flask, render_template
 
 
