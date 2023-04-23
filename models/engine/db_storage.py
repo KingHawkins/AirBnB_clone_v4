@@ -13,9 +13,12 @@ from sqlalchemy.orm import sessionmaker, scoped_session
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import create_engine, MetaData
 
+
 classes = {"Amenity": Amenity, "City": City,
            "Place": Place, "Review": Review, "State": State, "User": User}
 Base = declarative_base()
+
+
 class DBStorage:
     __engine = None
     __session = None
@@ -47,7 +50,6 @@ class DBStorage:
                     new_dict[key] = obj
         return (new_dict)
 
-
     def new(self, obj):
         """Adds new object to current database session"""
         if obj:
@@ -65,7 +67,8 @@ class DBStorage:
     def reload(self):
         """reloads data from the database"""
         Base.metadata.create_all(self.__engine)
-        session_factory = sessionmaker(bind=self.__engine, expire_on_commit=False)
+        session_factory = sessionmaker(bind=self.__engine,
+                                       expire_on_commit=False)
         Session = scoped_session(session_factory)
         self.__session = Session()
 

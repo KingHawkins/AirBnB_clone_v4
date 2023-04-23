@@ -38,10 +38,10 @@ class FileStorage:
         for key, values in FileStorage.__objects.items():
             dictionary[key] = values.to_dict()
         with open(FileStorage.__file_path, 'w') as output:
-             json.dump(dictionary, output)
-                # This will not work well. Object instances wont be saved
-                # with open(self.__file_path, 'w') as output:
-                # json.dump(FileStorage.__objects, output)
+            json.dump(dictionary, output)
+            # This will not work well. Object instances wont be saved
+            # with open(self.__file_path, 'w') as output:
+            # json.dump(FileStorage.__objects, output)
 
     def reload(self):
         """deserializes the JSON file to __objects only if JSON file\

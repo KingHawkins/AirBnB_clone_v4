@@ -1,5 +1,8 @@
 #!/usr/bin/python3
-"""displays cities based on states"""
+"""
+displays cities based on states,
+and displays it on the page.
+"""
 
 from flask import Flask, render_template
 from models import storage

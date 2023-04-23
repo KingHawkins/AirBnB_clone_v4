@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-"""gets data from database and displays it on the page
+"""gets data from database\
+        and displays it on the page
 """
 
 from flask import Flask, render_template
