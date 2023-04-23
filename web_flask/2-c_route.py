@@ -5,14 +5,17 @@ app = Flask(__name__)
 
 @app.route('/', strict_slashes=False)
 def index():
+    """the index page"""
     return "Hello HBNB"
 
 @app.route('/hbnb', strict_slashes=False)
 def display():
+    """The first route"""
     return "HBNB"
 
 @app.route('/c/<text>', strict_slashes=False)
 def text(text):
+    """checks if text a string"""
     return f"C {text.replace('_', ' ')}"
 
 

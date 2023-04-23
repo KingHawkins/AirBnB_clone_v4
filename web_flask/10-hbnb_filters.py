@@ -9,6 +9,7 @@ app = Flask(__name__)
 
 @app.route('/hbnb_filters', strict_slashes=False)
 def hbnb_filters():
+    """filters the states and cities from database"""
     states = dict(sorted(storage.all("State").items()))
     amenity = dict(sorted(storage.all("Amenity").items()))
     return render_template('10-hbnb_filters.html', title='AirBnB Clone', states=states, amenities=amenity)

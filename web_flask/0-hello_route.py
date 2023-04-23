@@ -7,6 +7,7 @@ app.config['PORT'] = 5000
 
 @app.route('/', strict_slashes=False)
 def index():
+    """The index page"""
     return "Hello HBNB"
 
 if __name__ == '__main__':

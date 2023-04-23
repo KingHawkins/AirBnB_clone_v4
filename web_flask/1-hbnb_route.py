@@ -5,10 +5,12 @@ app = Flask(__name__)
 
 @app.route('/', strict_slashes=False)
 def index():
+    """The index page"""
     return "Hello HBNB"
 
 @app.route('/hbnb', strict_slashes=False)
 def display():
+    """first route"""
     return "HBNB"
 
 if __name__ == '__main__':
