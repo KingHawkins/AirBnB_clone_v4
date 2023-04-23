@@ -1,6 +1,9 @@
 #!/usr/bin/python3
 from flask import Flask
-
+"""
+This is the first task in flask.
+we are to display the index page.
+"""
 app = Flask(__name__)
 app.config['HOST'] = '0.0.0.0'
 app.config['PORT'] = 5000
