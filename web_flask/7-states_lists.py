@@ -1,7 +1,11 @@
 #!/usr/bin/python3
+"""gets data from database and displays it on the page
+"""
+
 from flask import Flask, render_template
 from models import storage
 from models.state import State
+
 
 app = Flask(__name__)
 
@@ -11,7 +15,9 @@ def states_list():
     """lists all the State objects"""
     all_states = storage.all('State')
     sorted_dic = dict(sorted(all_states.items()))
-    return render_template('7-states_list.html', storage=sorted_dic, states="State", title="HBNB")
+    return render_template('7-states_list.html', storage=sorted_dic,
+                           states="State", title="HBNB")
+
 
 @app.teardown_appcontext
 def destroy(exception):
