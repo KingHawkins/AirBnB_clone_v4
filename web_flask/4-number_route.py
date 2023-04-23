@@ -1,9 +1,7 @@
 #!/usr/bin/python3
-"""uses the GET request and checks
- if parameter passed is an
-integer and displays it in a page
 """
-
+uses the GET request and checks parameter passed
+"""
 from flask import Flask
 
 

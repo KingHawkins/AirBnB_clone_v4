@@ -1,9 +1,7 @@
 #!/usr/bin/python3
 """
-checks if parameter passed is an,
-integer and whether is even or odd
+checks if parameter passed is an integer
 """
-
 from flask import Flask, render_template
 
 

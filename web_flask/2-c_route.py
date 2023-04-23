@@ -1,10 +1,7 @@
 #!/usr/bin/python3
 """
 GETS 'text' via http request.
-And displays it in a page,
-else displays an error page.
 """
-
 from flask import Flask
 
 

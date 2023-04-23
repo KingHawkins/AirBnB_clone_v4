@@ -1,9 +1,7 @@
 #!/usr/bin/python3
 """
 checks if parameter is even or odd.
-It then displays on the page.
 """
-
 from flask import Flask, render_template
 
 
