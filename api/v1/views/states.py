@@ -19,12 +19,7 @@ def all_states():
     obj = storage.all("State")
     lis = []
     for value in obj.values():
-        lis.append({
-            '__class__': 'State',
-            'created_at': value.created_at.isoformat(),
-            'id': value.id,
-            'name': value.name,
-            'updated_at': value.updated_at.isoformat()})
+        lis.append(value.to_dict())
     return jsonify(lis)
 
 
@@ -35,12 +30,7 @@ def all_state_id(state_id):
     if state is None:
         abort(404)
 
-    return jsonify({
-        '__class__': 'State',
-        'created_at': state.created_at.isoformat(),
-        'id': state.id,
-        'name': state.name,
-        'updated_at': state.updated_at.isoformat()})
+    return jsonify(state.to_dict())
 
 
 @app_views.route('/states/<sta_id>', methods=['DELETE'], strict_slashes=False)
