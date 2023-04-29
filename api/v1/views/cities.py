@@ -21,7 +21,6 @@ def all_cities(sd):
     if states is None:
         abort(404)
 
-
     lis = []
     for city in states.cities:
         lis.append(city.to_dict())
@@ -86,7 +85,7 @@ def post_city(s):
     state = storage.get('State', s)
     if state is None:
         abort(404)
-    
+
     city.state_id = state.id
     city.save()
     for cit in state.cities:

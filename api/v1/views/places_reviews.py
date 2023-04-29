@@ -66,7 +66,6 @@ def put_review(rv):
             setattr(review, key, value)
 
     review.save()
-
     return jsonify(review.to_dict()), 200
 
 
@@ -75,7 +74,6 @@ def post_review(p):
     """Creates a new review of a place"""
     if not request.json:
         abort(404, "Not a JSON")
-
 
     if 'user_id' not in request.json.keys():
         abort(404, "Missing user_id")

@@ -76,7 +76,6 @@ def post_place(c):
     if not request.json:
         abort(404, "Not a JSON")
 
-
     if 'user_id' not in request.json.keys():
         abort(404, "Missing user_id")
 

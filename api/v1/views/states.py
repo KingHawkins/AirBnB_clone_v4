@@ -82,7 +82,6 @@ def post_state():
     if not request.json:
         abort(404, "Not a JSON")
 
-
     if 'name' not in request.json.keys():
         abort(404, "Missing name")
 

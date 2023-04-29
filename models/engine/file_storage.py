@@ -1,8 +1,8 @@
 #!/usr/bin/python3
-import json
-import os
 """serializes instances to a JSON file\
         and deserializes JSON file to instances"""
+import json
+import os
 
 
 class FileStorage:
@@ -68,6 +68,20 @@ class FileStorage:
             key = obj.__class__.__name__ + '.' + obj.id
             if key in self.__objects:
                 del self.__objects[key]
+
+    def get(self, cls, id):
+        """Gets the object associated with id"""
+        item = self.all(cls)
+        for value in item.values():
+            if value.id == id:
+                return value
+        return None
+
+    def count(self, cls=None):
+        """Counts the number of items of a particular class"""
+        if cls is not None:
+            return len(self.all(cls))
+        return (len(self.all()))
 
     def close(self):
         self.reload()

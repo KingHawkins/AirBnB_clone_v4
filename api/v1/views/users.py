@@ -78,7 +78,6 @@ def post_user():
     if 'password' not in request.json.keys():
         abort(404, "Missing password")
 
-
     user = User(**request.json)
     user.save()
     return jsonify(user.to_dict()), 201
