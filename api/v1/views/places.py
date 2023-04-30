@@ -111,7 +111,7 @@ def places_search():
     (places, ls) = storage.all("Place"), []
     cities = storage.all("City").values()
     for place in places.values():
-        if (place.city_id in request.json.values()):
+        if (place.city_id in request.get_json().cities):
             print(place.city_id)
             ls.append(place)
     return jsonify(ls)
