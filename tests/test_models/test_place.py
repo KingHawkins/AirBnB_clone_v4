@@ -1,16 +1,16 @@
 #!/usr/bin/python3
 """Unittest module for the Place Class."""
 
-import unittest
 from datetime import datetime
-import time
-from models.place import Place
-import re
-import json
-from models.engine.file_storage import FileStorage
-import os
 from models import storage
 from models.base_model import BaseModel
+from models.engine.file_storage import FileStorage
+from models.place import Place
+import json
+import os
+import re
+import time
+import unittest
 
 
 class TestPlace(unittest.TestCase):
@@ -42,7 +42,7 @@ class TestPlace(unittest.TestCase):
 
     def test_8_attributes(self):
         """Tests the attributes of Place class."""
-        attributes = storage.attributes()["Place"]
+        attributes = storage.all("Place")
         o = Place()
         for k, v in attributes.items():
             self.assertTrue(hasattr(o, k))

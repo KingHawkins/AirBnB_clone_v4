@@ -2,11 +2,12 @@
 """
 Test db storage
 """
+from io import StringIO
 from models import storage
 from models.amenity import Amenity
 from models.city import City
 from models.place import Place
-from models.reviews import Review
+from models.review import Review
 from models.state import State
 from models.user import User
 import unittest
@@ -35,7 +36,7 @@ class Count(unittest.TestCase):
         with patch("sys.stdout", new=StringIO()) as f:
             users = storage.count(User)
             print("User objects: {}".format(users))
-            self.assertEqual(f"State objects: {users}", f.getvalue().strip())
+            self.assertEqual(f"User objects: {users}", f.getvalue().strip())
 
     def test_count_reviews(self):
         """checks for total count for reviews objects"""
@@ -64,3 +65,7 @@ class Count(unittest.TestCase):
             amns = storage.count(Amenity)
             print("Amenity objects: {}".format(amns))
             self.assertEqual(f"Amenity objects: {amns}", f.getvalue().strip())
+
+
+if __name__ == '__main__':
+    unittest.main()

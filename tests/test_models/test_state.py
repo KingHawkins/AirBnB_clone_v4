@@ -1,16 +1,16 @@
 #!/usr/bin/python3
 """Unittest module for the State Class."""
 
-import unittest
 from datetime import datetime
-import time
-from models.state import State
-import re
-import json
-from models.engine.file_storage import FileStorage
-import os
 from models import storage
 from models.base_model import BaseModel
+from models.engine.file_storage import FileStorage
+from models.state import State
+import json
+import os
+import re
+import time
+import unittest
 
 
 class TestState(unittest.TestCase):
@@ -42,7 +42,7 @@ class TestState(unittest.TestCase):
 
     def test_8_attributes(self):
         """Tests the attributes of State class."""
-        attributes = storage.attributes()["State"]
+        attributes = storage.all("State")
         o = State()
         for k, v in attributes.items():
             self.assertTrue(hasattr(o, k))

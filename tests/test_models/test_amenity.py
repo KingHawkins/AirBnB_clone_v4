@@ -1,16 +1,16 @@
 #!/usr/bin/python3
 """Unittest module for the Amenity Class."""
 
-import unittest
 from datetime import datetime
-import time
-from models.amenity import Amenity
-import re
-import json
-from models.engine.file_storage import FileStorage
-import os
 from models import storage
+from models.amenity import Amenity
 from models.base_model import BaseModel
+from models.engine.file_storage import FileStorage
+import json
+import os
+import re
+import time
+import unittest
 
 
 class TestAmenity(unittest.TestCase):
@@ -42,7 +42,7 @@ class TestAmenity(unittest.TestCase):
 
     def test_8_attributes(self):
         """Tests the attributes of Amenity class."""
-        attributes = storage.attributes()["Amenity"]
+        attributes = storage.all("Amenity")
         o = Amenity()
         for k, v in attributes.items():
             self.assertTrue(hasattr(o, k))
