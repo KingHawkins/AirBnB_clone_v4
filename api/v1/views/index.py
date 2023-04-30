@@ -4,7 +4,7 @@ Routes:
     /status: returns the 'OK' status
     /stats: returns the total count of the objects in database
 Usage:
-    ./app
+    python3 -m api.v1.app
 """
 from api.v1.views import app_views
 from flask import jsonify
@@ -17,27 +17,21 @@ from models.state import State
 from models.user import User
 
 
-@app_views.route('/status', methods=['GET'])
+@app_views.route('/status', methods=['GET'], strict_slashes=False)
 def static():
     """returns json object"""
     return jsonify(status="OK")
 
 
-@app_views.route('/stats', methods=['GET'])
+@app_views.route('/stats', methods=['GET'], strict_slashes=False)
 def stats():
     """Returns the count for all items in database"""
-    amenities = storage.count(Amenity)
-    cities = storage.count(City)
-    places = storage.count(Place)
-    reviews = storage.count(Review)
-    states = storage.count(State)
-    users = storage.count(User)
     obj = {
-            'amenities': amenities,
-            'cities': cities,
-            'places': places,
-            'reviews': reviews,
-            'states': states,
-            'users': users
+            'amenities': storage.count(Amenity),
+            'cities': storage.count(City),
+            'places': storage.count(Place),
+            'reviews': storage.count(Review),
+            'states': storage.count(State),
+            'users': storage.count(User)
             }
     return jsonify(obj)

@@ -95,3 +95,23 @@ def post_place(c):
     place.user_id = user.id
     place.save()
     return jsonify(place.to_dict()), 201
+
+
+@app_views.route('/places_search', methods=['POST'], strict_slashes=False)
+def places_search():
+    """a new endpoint that retrieves all place objects"""
+    if not request.json:
+        abort(400, "Not a JSON")
+    """if len(request.json) == 0 or len(request.json.values()) == 0:
+        (places, ls) = (storage.all("Place"), [])
+        for place in places.values():
+            ls.append(place.to_dict())
+            return jsonify(ls)"""
+
+    (places, ls) = storage.all("Place"), []
+    cities = storage.all("City").values()
+    for place in places.values():
+        if (place.city_id in request.json.values()):
+            print(place.city_id)
+            ls.append(place)
+    return jsonify(ls)

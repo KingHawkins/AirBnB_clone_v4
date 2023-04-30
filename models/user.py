@@ -1,10 +1,11 @@
 #!/usr/bin/python3
+"""User class"""
+
 from models.place import Place
 from models.base_model import BaseModel, Base
 from models.review import Review
 from sqlalchemy.orm import relationship
 from sqlalchemy import String, Column
-"""Inherits basemodel"""
 
 
 class User(BaseModel, Base):
