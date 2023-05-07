@@ -12,26 +12,12 @@ from flasgger import Swagger
 
 app = Flask(__name__)
 app.register_blueprint(app_views)
-CORS(app, resources={r"/*": {"origins": "0.0.0.0"}})
+CORS(app, resources={r"/api/v1/*": {"origins": "*"}})
 app.config['SWAGGER'] = {
-    "swagger_version": "2.0",
-    "title": "Flasgger",
-    "headers": [
-        ('Access-Control-Allow-Origin', '0.0.0.0'),
-        ('Access-Control-Allow-Methods', "GET, POST, PUT, DELETE, OPTIONS"),
-        ('Access-Control-Allow-Credentials', "true"),
-    ],
-    "specs": [
-        {
-            "version": "1.0",
-            "title": "HBNB API",
-            "endpoint": 'v1_views',
-            "description": 'HBNB REST API',
-            "route": '/v1/views',
-        }
-    ]
-}
-swagger = Swagger(app)
+    "uiversion": "3",
+    "title": "AirBnB clone Restful API",
+    }
+Swagger(app)
 
 @app.errorhandler(404)
 def custom_404(error):
