@@ -12,7 +12,7 @@ import uuid
 app = Flask(__name__)
 
 
-@app.route('/1-hbnb', strict_slashes=False)
+@app.route('/2-hbnb', strict_slashes=False)
 def hbnb_filters():
     """filters styate and city objects in database"""
     states = dict(sorted(storage.all("State").items()))
