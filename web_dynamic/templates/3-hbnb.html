@@ -51,20 +51,11 @@
 				</div>
 				<button>Search</button>
 			</section>
-			<section class="places">
+
 				<h1>Places</h1>
 				<div>
-					{% for place in places.values() %}
+places.values() %}
 					<article>
-						<h2>{{ place.name }}</h2>
-						<div class="price_by_night">{{ place.price_by_night }}</div>
-						<div class="information">
-							<div class="max_guest">{{ place.max_guest }}</div>
-							<div class="number_rooms">{{ place.number_rooms}}</div>
-							<div class="number_bathrooms">{{ place.number_bathrooms}}</div>
-						</div>
-						<div class="user">Owner: {{ users[place.user_id] }}</div>
-						<div class="description">{{ place.description }}</div>
 					</article>
 					{% endfor %}
 				</div>
